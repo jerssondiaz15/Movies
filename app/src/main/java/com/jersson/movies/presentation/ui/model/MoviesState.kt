@@ -2,6 +2,7 @@ package com.jersson.movies.presentation.ui.model
 
 data class MoviesState(
     val listMovies: List<Movie> = listOf(),
+    val listFavorite: List<Movie> = listOf(),
     val movieSelected: Movie = Movie(),
     val navigate: NavigationMovies = NavigationMovies(),
     val funtionMovie: FuntionMovie = FuntionMovie()
@@ -16,7 +17,7 @@ data class MoviesState(
         val releaseDate: String? = "",
         val title: String? = "",
         val voteAverage: Double? = 0.0,
-        val isFavorite: Boolean? = false
+        var isFavorite: Boolean = false
     )
 
     data class NavigationMovies(
@@ -25,5 +26,6 @@ data class MoviesState(
 
     data class FuntionMovie(
         val movieSelected: ((Movie) -> Unit)? = null,
+        val onFavorite: ((Movie) -> Unit)? = null
     )
 }

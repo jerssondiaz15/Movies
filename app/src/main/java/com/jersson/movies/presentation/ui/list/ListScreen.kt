@@ -52,6 +52,9 @@ fun ListScreen(
                                     movie
                                 )*/
                                 state.navigate.goToDetail?.invoke()
+                            },
+                            onFavorite = {
+                                state.funtionMovie.onFavorite?.invoke(movie)
                             }
                         )
                     }

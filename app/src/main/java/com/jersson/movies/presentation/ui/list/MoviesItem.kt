@@ -21,13 +21,14 @@ import com.jersson.movies.presentation.ui.model.MoviesState
 import com.jersson.movies.presentation.ui.theme.movieDetail
 import com.jersson.movies.presentation.ui.theme.movieTittle
 
+private const val URL_IMAGE = "https://image.tmdb.org/t/p/w500"
 @Preview
 @Composable
 fun MoviesItem(
     movie: MoviesState.Movie = MoviesState.Movie(),
-    onClick: ((MoviesState.Movie) -> Unit? )? = null
+    onClick: ((MoviesState.Movie) -> Unit? )? = null,
+    onFavorite: ((MoviesState.Movie) -> Unit? )? = null
 ){
-
     Column(
         modifier = Modifier.clickable {
             onClick?.invoke(movie)
@@ -53,8 +54,7 @@ fun MoviesItem(
                         .width(100.dp)
                         .height(120.dp)
                         .weight(1f),
-                    //painter = painterResource(id = R.drawable.ic_launcher_background),
-                    painter = rememberAsyncImagePainter(model = "https://image.tmdb.org/t/p/w500//3IhGkkalwXguTlceGSl8XUJZOVI.jpg"),
+                    painter = rememberAsyncImagePainter(model = "$URL_IMAGE${movie.posterPath}"),
                     contentDescription = ""
                 )
                 Spacer(modifier = Modifier.height(10.dp))
@@ -80,13 +80,13 @@ fun MoviesItem(
                 }
                 IconButton(
                     onClick = { 
-                        
+                        onFavorite?.invoke(movie)
                     }
                 ) {
                     Icon(
                         modifier = Modifier
                             .weight(0.5f),
-                        painter = painterResource(id = getFavoriteVector(movie.isFavorite ?: false)),
+                        painter = painterResource(id = getFavoriteVector(movie.isFavorite)),
                         contentDescription = "",
                         tint = Color.Red
                     )

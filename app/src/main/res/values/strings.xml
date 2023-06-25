@@ -5,4 +5,5 @@
     <string name="release_date">Fecha de estreno</string>
     <string name="our_billboard">NUESTRA CARTELERA</string>
     <string name="your_favorites">TUS FAVORITAS</string>
+    <string name="no_favorites">NO TIENES FAVORITAS</string>
 </resources>

@@ -28,33 +28,44 @@ fun FavoriteScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         AnimatedVisibility(
             visibleState = MutableTransitionState(true),
             enter = expandHorizontally(),
             exit = shrinkHorizontally()
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Spacer(modifier = Modifier.height(10.dp))
+            if (state.listFavorite.isEmpty()){
                 Text(
-                    text = stringResource(id = R.string.your_favorites),
+                    text = stringResource(id = R.string.no_favorites),
                     style = movieHeadboard
                 )
-                LazyVerticalGrid(
-                    columns = GridCells.Fixed(2)
-                ){
-                    items(items = state.listMovies){movie ->
-                        FavoriteItem(
-                            movie = movie,
-                            onClick = {
-                                state.funtionMovie.movieSelected?.invoke(
-                                    movie
-                                )
-                                state.navigate.goToDetail?.invoke()
-                            }
-                        )
+            } else{
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Text(
+                        text = stringResource(id = R.string.your_favorites),
+                        style = movieHeadboard
+                    )
+                    LazyVerticalGrid(
+                        columns = GridCells.Fixed(2)
+                    ){
+                        items(items = state.listFavorite){movie ->
+                            FavoriteItem(
+                                movie = movie,
+                                onClick = {
+                                    state.funtionMovie.movieSelected?.invoke(
+                                        movie
+                                    )
+                                    state.navigate.goToDetail?.invoke()
+                                }
+                            )
+                        }
                     }
                 }
             }

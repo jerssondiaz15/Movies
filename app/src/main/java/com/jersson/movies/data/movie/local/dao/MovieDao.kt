@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.jersson.movies.data.movie.local.model.DbMovie
 
 @Dao
@@ -20,4 +21,8 @@ interface MovieDao {
 
     @Query("SELECT * FROM movie_table WHERE isFavorite")
     suspend fun getListFavorite(): List<DbMovie>
+
+    @Query("Update movie_table SET isFavorite = :isFavorite  WHERE id = :id")
+    suspend fun updateMovie(isFavorite: Boolean, id: Int)
+
 }

@@ -17,6 +17,7 @@ import com.jersson.movies.presentation.ui.model.MoviesState
 import com.jersson.movies.presentation.ui.theme.movieDetail
 import com.jersson.movies.presentation.ui.theme.movieTittle
 
+private const val URL_IMAGE = "https://image.tmdb.org/t/p/w500"
 @Preview
 @Composable
 fun FavoriteItem(
@@ -46,8 +47,7 @@ fun FavoriteItem(
                 Image(
                     modifier = Modifier
                         .height(150.dp),
-                    //painter = painterResource(id = R.drawable.ic_launcher_background),
-                    painter = rememberAsyncImagePainter(model = "https://image.tmdb.org/t/p/w500//3IhGkkalwXguTlceGSl8XUJZOVI.jpg"),
+                    painter = rememberAsyncImagePainter(model = "$URL_IMAGE${movie.posterPath}"),
                     contentDescription = ""
                 )
                 Spacer(modifier = Modifier.height(10.dp))

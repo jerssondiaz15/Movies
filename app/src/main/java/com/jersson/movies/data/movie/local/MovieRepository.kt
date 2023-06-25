@@ -23,4 +23,12 @@ class MovieRepository @Inject constructor(
         movieDatabaseDataSource.insertMovies(movie.toDbMovie())
     }
 
+    override suspend fun getListFavorite(): List<MoviesState.Movie> {
+        return movieDatabaseDataSource.getListFavorite().toListMovie()
+    }
+
+    override suspend fun updateMovie(isFavorite: Boolean, id: Int) {
+        movieDatabaseDataSource.updateMovie(isFavorite, id)
+    }
+
 }

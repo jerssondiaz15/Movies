@@ -15,7 +15,7 @@ fun DbMovie.toMovie(): MoviesState.Movie = with(this){
         releaseDate = releaseDate,
         title = title,
         voteAverage = voteAverage,
-        isFavorite = isFavorite
+        isFavorite = isFavorite ?: true
     )
 }
 
@@ -30,6 +30,7 @@ fun MoviesState.Movie.toDbMovie(): DbMovie = with(this){
         posterPath = posterPath,
         releaseDate = releaseDate,
         title = title,
-        voteAverage = voteAverage
+        voteAverage = voteAverage,
+        isFavorite = isFavorite
     )
 }

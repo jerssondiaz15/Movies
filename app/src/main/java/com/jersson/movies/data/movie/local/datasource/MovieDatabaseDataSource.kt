@@ -18,4 +18,12 @@ class MovieDatabaseDataSource(
     suspend fun insertMovies(dbMovie: DbMovie){
         movieDataBase.movieDao().insertMovies(dbMovie)
     }
+
+    suspend fun getListFavorite(): List<DbMovie> {
+        return movieDataBase.movieDao().getListFavorite()
+    }
+
+    suspend fun updateMovie(isFavorite: Boolean, id: Int){
+        movieDataBase.movieDao().updateMovie(isFavorite, id)
+    }
 }
