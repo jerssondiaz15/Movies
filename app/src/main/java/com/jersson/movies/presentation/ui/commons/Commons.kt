@@ -1,4 +1,4 @@
-package com.example.moviesolera.presentation.ui.commons
+package com.jersson.movies.presentation.ui.commons
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*

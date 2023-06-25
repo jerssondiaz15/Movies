@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Movies</string>
+    <string name="app_name">MovieSolera</string>
+    <string name="tittle">Titulo</string>
+    <string name="synopsis">Sinopsis de la pelicula</string>
+    <string name="release_date">Fecha de estreno</string>
+    <string name="our_billboard">NUESTRA CARTELERA</string>
+    <string name="your_favorites">TUS FAVORITAS</string>
 </resources>
