@@ -1,4 +1,4 @@
-package com.jersson.movies.presentation.ui.Utils
+package com.jersson.movies.presentation.ui.utils
 
 import com.jersson.movies.presentation.ui.commons.FINAL_DATE
 import com.jersson.movies.presentation.ui.commons.INIT_DATE

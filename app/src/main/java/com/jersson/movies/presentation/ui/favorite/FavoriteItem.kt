@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.jersson.movies.R
-import com.jersson.movies.presentation.ui.Utils.convertDate
+import com.jersson.movies.presentation.ui.utils.convertDate
 import com.jersson.movies.presentation.ui.commons.URL_IMAGE
 import com.jersson.movies.presentation.ui.model.MoviesState
 import com.jersson.movies.presentation.ui.theme.movieDetail
