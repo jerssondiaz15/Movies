@@ -22,7 +22,8 @@ import com.jersson.movies.R
 
 @Composable
 fun FavoriteScreen(
-    state: MoviesState = MoviesState()
+    state: MoviesState = MoviesState(),
+    onClick: ((MoviesState.Movie) -> Unit? )? = null
 ){
     Column(
         modifier = Modifier
@@ -59,10 +60,7 @@ fun FavoriteScreen(
                             FavoriteItem(
                                 movie = movie,
                                 onClick = {
-                                    state.funtionMovie.movieSelected?.invoke(
-                                        movie
-                                    )
-                                    state.navigate.goToDetail?.invoke()
+                                    onClick?.invoke(movie)
                                 }
                             )
                         }

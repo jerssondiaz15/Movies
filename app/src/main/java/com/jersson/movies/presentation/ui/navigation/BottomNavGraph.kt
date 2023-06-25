@@ -6,7 +6,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.jersson.movies.presentation.ui.favorite.FavoriteScreen
 import com.jersson.movies.presentation.ui.list.ListScreen
-import com.example.moviesolera.presentation.ui.navigation.MoviesNavigation
 import com.jersson.movies.presentation.ui.MoviesViewModel
 import com.jersson.movies.presentation.ui.model.MoviesState
 
@@ -14,7 +13,7 @@ import com.jersson.movies.presentation.ui.model.MoviesState
 fun BottomNavGraph(
     navController: NavHostController,
     viewModel: MoviesViewModel,
-    onClick: (() -> Unit? )? = null
+    onClick: ((MoviesState.Movie) -> Unit? )? = null
 ) {
 
     NavHost(
@@ -29,7 +28,8 @@ fun BottomNavGraph(
         }
         composable(route = MoviesNavigation.MoviesFavorite.route) {
             FavoriteScreen(
-                state = viewModel.state.value
+                state = viewModel.state.value,
+                onClick = onClick
             )
         }
     }

@@ -13,15 +13,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
+import com.jersson.movies.R
+import com.jersson.movies.presentation.ui.Utils.convertDate
+import com.jersson.movies.presentation.ui.commons.URL_IMAGE
 import com.jersson.movies.presentation.ui.commons.getFavoriteVector
 import com.jersson.movies.presentation.ui.model.MoviesState
 import com.jersson.movies.presentation.ui.theme.movieDetail
-import com.jersson.movies.presentation.ui.theme.movieTittle
+import com.jersson.movies.presentation.ui.theme.movieHeadboard
 
-private const val URL_IMAGE = "https://image.tmdb.org/t/p/w500"
 @Preview
 @Composable
 fun MoviesItem(
@@ -63,17 +66,17 @@ fun MoviesItem(
                         .weight(2f)
                 ) {
                     Text(
-                        text = movie.title ?: "Sin titulo",
-                        style = movieTittle,
+                        text = movie.title ?: stringResource(id = R.string.no_tittle),
+                        style = movieHeadboard,
                         maxLines = 1
                     )
                     Text(
-                        text = "24 de Junio del 2023",
+                        text = convertDate(movie.releaseDate ?: stringResource(id = R.string.example_date)),
                         style = movieDetail,
                         maxLines = 1
                     )
                     Text(
-                        text = "Calificación: ${movie.voteAverage}",
+                        text = "${stringResource(id = R.string.calify)} ${movie.voteAverage}",
                         style = movieDetail,
                         maxLines = 1
                     )

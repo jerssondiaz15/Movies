@@ -32,11 +32,7 @@ class MoviesViewModel @Inject constructor(
 
     init {
         _state.value = state.value.copy(
-            navigate = state.value.navigate.copy(
-                //goToDetail = ::goToDetail
-            ),
             funtionMovie = state.value.funtionMovie.copy(
-                movieSelected = ::movieSelected,
                 onFavorite = ::onFavorite
             )
         )
@@ -61,12 +57,6 @@ class MoviesViewModel @Inject constructor(
             )
             Log.i("getListFavoriteMoviesUseCase: ", result.toString())
         }
-    }
-
-    private fun movieSelected(movie: MoviesState.Movie){
-        _state.value = state.value.copy(
-            movieSelected = movie
-        )
     }
 
     private fun onFavorite(movie: MoviesState.Movie){

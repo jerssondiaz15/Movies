@@ -6,4 +6,8 @@
     <string name="our_billboard">NUESTRA CARTELERA</string>
     <string name="your_favorites">TUS FAVORITAS</string>
     <string name="no_favorites">NO TIENES FAVORITAS</string>
+    <string name="no_tittle">No tittle</string>
+    <string name="calify">Calificación:</string>
+    <string name="example_date">2023-05-17</string>
+    <string name="dont_have_synopsis">No tiene synopsis</string>
 </resources>

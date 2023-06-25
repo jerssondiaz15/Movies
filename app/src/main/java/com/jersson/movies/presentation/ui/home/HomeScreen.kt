@@ -13,13 +13,14 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.jersson.movies.presentation.ui.MoviesViewModel
 import com.jersson.movies.presentation.ui.commons.BottomBarScreen
+import com.jersson.movies.presentation.ui.model.MoviesState
 import com.jersson.movies.presentation.ui.navigation.BottomNavGraph
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(
     moviesViewModel: MoviesViewModel,
-    onClick: (() -> Unit? )? = null
+    onClick: ((MoviesState.Movie) -> Unit? )? = null
 ) {
     val navController = rememberNavController()
     Scaffold(

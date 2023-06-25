@@ -20,15 +20,6 @@ private val LightColorPalette = lightColors(
     primary = Purple500,
     primaryVariant = Purple700,
     secondary = Teal200
-
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
 )
 
 @Composable
@@ -47,13 +38,6 @@ fun MoviesTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable
     )
 }
 
-val movieTittle = TextStyle(
-    color = Color.Black,
-    fontSize = 18.sp,
-    lineHeight = 18.sp,
-    fontWeight = FontWeight.Bold
-)
-
 val movieDetail = TextStyle(
     color = Color.Black,
     fontSize = 14.sp,
@@ -65,5 +49,5 @@ val movieHeadboard = TextStyle(
     color = Color.Black,
     fontSize = 24.sp,
     lineHeight = 24.sp,
-    fontWeight = FontWeight.Normal
+    fontWeight = FontWeight.Bold
 )

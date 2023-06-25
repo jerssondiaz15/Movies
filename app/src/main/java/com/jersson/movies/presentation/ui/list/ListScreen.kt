@@ -22,7 +22,7 @@ import com.jersson.movies.presentation.ui.theme.movieHeadboard
 @Composable
 fun ListScreen(
     state: MoviesState = MoviesState(),
-    onClick: (() -> Unit? )? = null
+    onClick: ((MoviesState.Movie) -> Unit? )? = null
 ) {
     Column(
         modifier = Modifier
@@ -47,11 +47,7 @@ fun ListScreen(
                         MoviesItem(
                             movie = movie,
                             onClick = {
-                                /*
-                                state.funtionMovie.movieSelected?.invoke(
-                                    movie
-                                )*/
-                                state.navigate.goToDetail?.invoke()
+                                onClick?.invoke(movie)
                             },
                             onFavorite = {
                                 state.funtionMovie.onFavorite?.invoke(movie)
