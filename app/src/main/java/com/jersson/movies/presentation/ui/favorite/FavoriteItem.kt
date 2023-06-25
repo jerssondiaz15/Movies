@@ -57,7 +57,7 @@ fun FavoriteItem(
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Text(
-                        text = movie.title,
+                        text = movie.title ?: "Sin titulo",
                         style = movieTittle,
                         maxLines = 1
                     )

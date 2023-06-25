@@ -63,7 +63,7 @@ fun MoviesItem(
                         .weight(2f)
                 ) {
                     Text(
-                        text = movie.title,
+                        text = movie.title ?: "Sin titulo",
                         style = movieTittle,
                         maxLines = 1
                     )
@@ -86,7 +86,7 @@ fun MoviesItem(
                     Icon(
                         modifier = Modifier
                             .weight(0.5f),
-                        painter = painterResource(id = getFavoriteVector(movie.isFavorite)),
+                        painter = painterResource(id = getFavoriteVector(movie.isFavorite ?: false)),
                         contentDescription = "",
                         tint = Color.Red
                     )
