@@ -18,7 +18,8 @@ import com.jersson.movies.presentation.ui.navigation.BottomNavGraph
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(
-    moviesViewModel: MoviesViewModel
+    moviesViewModel: MoviesViewModel,
+    onClick: (() -> Unit? )? = null
 ) {
     val navController = rememberNavController()
     Scaffold(
@@ -26,7 +27,8 @@ fun HomeScreen(
     ) {
         BottomNavGraph(
             navController = navController,
-            viewModel = moviesViewModel
+            viewModel = moviesViewModel,
+            onClick = onClick
         )
     }
 }

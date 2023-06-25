@@ -1,7 +1,10 @@
 package com.jersson.movies.presentation.ui.model
 
 data class MoviesState(
-    val listMovies: List<Movie> = listOf()
+    val listMovies: List<Movie> = listOf(),
+    val movieSelected: Movie = Movie(),
+    val navigate: NavigationMovies = NavigationMovies(),
+    val funtionMovie: FuntionMovie = FuntionMovie()
 ) {
     data class Movie(
         val id: Int = 1,
@@ -14,5 +17,13 @@ data class MoviesState(
         val title: String = "",
         val voteAverage: Double = 0.0,
         val isFavorite: Boolean = false
+    )
+
+    data class NavigationMovies(
+        val goToDetail: (() -> Unit)? = null,
+    )
+
+    data class FuntionMovie(
+        val movieSelected: ((Movie) -> Unit)? = null,
     )
 }

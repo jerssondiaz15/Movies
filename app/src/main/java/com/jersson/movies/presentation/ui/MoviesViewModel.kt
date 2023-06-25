@@ -18,13 +18,18 @@ class MoviesViewModel @Inject constructor(
     @ApplicationContext context: Context
 ) : ViewModel(){
 
-    private val resources = context.resources
+    private val resource = context.resources
 
     private var _state = mutableStateOf(MoviesState())
     val state: State<MoviesState> = _state
 
     private val _listMovies = MutableLiveData<List<MoviesState.Movie>>()
     val listMovies: LiveData<List<MoviesState.Movie>> get() = _listMovies
+
+    private val _movie = MutableLiveData<MoviesState.Movie>()
+    val movie: LiveData<MoviesState.Movie> get() = _movie
+
+    val navigateToNewActivity = MutableLiveData<Unit>()
 
     init {
         val list = listOf(
@@ -53,10 +58,26 @@ class MoviesViewModel @Inject constructor(
             )
         )
         _state.value = state.value.copy(
-            listMovies = list
+            listMovies = list,
+            navigate = state.value.navigate.copy(
+                goToDetail = ::goToDetail
+            ),
+            funtionMovie = state.value.funtionMovie.copy(
+                movieSelected = ::movieSelected
+            )
         )
         viewModelScope.launch {
-            _listMovies.postValue(list)
+            _listMovies.postValue(_state.value.listMovies)
+            _movie.postValue(_state.value.movieSelected)
         }
+    }
+
+    private fun goToDetail(){
+        navigateToNewActivity.value = Unit
+    }
+    private fun movieSelected(movie: MoviesState.Movie){
+        _state.value = state.value.copy(
+            movieSelected = movie
+        )
     }
 }

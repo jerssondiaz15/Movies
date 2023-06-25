@@ -46,7 +46,15 @@ fun FavoriteScreen(
                     columns = GridCells.Fixed(2)
                 ){
                     items(items = state.listMovies){movie ->
-                        FavoriteItem(movie)
+                        FavoriteItem(
+                            movie = movie,
+                            onClick = {
+                                state.funtionMovie.movieSelected?.invoke(
+                                    movie
+                                )
+                                state.navigate.goToDetail?.invoke()
+                            }
+                        )
                     }
                 }
             }
